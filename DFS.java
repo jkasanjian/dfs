@@ -41,25 +41,118 @@ public class DFS
     {
         Long guid;
         Long size;
+        String creationTS;
+        String readTS;
+        String writeTS;
+        int referenceCount;
         public PagesJson()
         {
             
         }
         // getters
+        public Long getGuid(){
+            return this.guid;
+        }
+        public Long getSize(){
+            return this.size;
+        }
+        public String getCreationTS(){
+            return this.creationTS;
+        }
+        public String getReadTS(){
+            return this.readTS;
+        }
+        public String getWriteTS(){
+            return this.writeTS;
+        }
+        public int getReferenceCount(){
+            return this.referenceCount;
+        }
         // setters
+        public void setGuid(Long guid){
+            this.guid = guid;
+        }
+        public void setSize(Long size){
+            this.size = size;
+        }
+        public void setCreationTS(String creationTS){
+            this.creationTS = creationTS;
+        }
+        public void setReadTS(String readTS){
+            this.readTS = readTS;
+        }
+        public void setWriteTS(String writeTS){
+            this.writeTS = writeTS;
+        }
+        public void setReferenceCount(int referenceCount){
+             this.referenceCount = referenceCount;
+        }
+
+
+
+
     };
 
     public class FileJson 
     {
         String name;
         Long   size;
+        String creationTS;
+        String readTS;
+        String writeTS;
+        int referenceCount;
+        int numberOfPages;
         ArrayList<PagesJson> pages;
         public FileJson()
         {
             
         }
+
         // getters
+        public Long getGuid(){
+            return this.guid;
+        }
+        public Long getSize(){
+            return this.size;
+        }
+        public String getCreationTS(){
+            return this.creationTS;
+        }
+        public String getReadTS(){
+            return this.readTS;
+        }
+        public String getWriteTS(){
+            return this.writeTS;
+        }
+        public int getReferenceCount(){
+            return this.referenceCount;
+        }
+        public int getNumberOfPages(){
+            return this.numberOfPages;
+        }
         // setters
+        public void setGuid(Long guid){
+            this.guid = guid;
+        }
+        public void setSize(Long size){
+            this.size = size;
+        }
+        public void setCreationTS(String creationTS){
+            this.creationTS = creationTS;
+        }
+        public void setReadTS(String readTS){
+            this.readTS = readTS;
+        }
+        public void setWriteTS(String writeTS){
+            this.writeTS = writeTS;
+        }
+        public void setReferenceCount(int referenceCount){
+             this.referenceCount = referenceCount;
+        }
+        public void setNnumberOfPages(int numberOfPages){
+             this.numberOfPages = numberOfPages;
+        }
+
     };
     
     public class FilesJson 
@@ -70,7 +163,13 @@ public class DFS
              
          }
         // getters
+        public List<FileJson> getFile(){
+            return this.file;
+        }
         // setters
+        public void setFile(List<FileJson> file){
+            this.file = file;
+        }
     };
     
     
