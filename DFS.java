@@ -87,10 +87,6 @@ public class DFS
         public void setReferenceCount(int referenceCount){
              this.referenceCount = referenceCount;
         }
-
-
-
-
     };
 
     public class FileJson 
