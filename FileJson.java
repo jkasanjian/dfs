@@ -14,8 +14,9 @@ import PageJson;
 
 public class FileJson 
 {
+    long guid
     String name;
-    Long   size;
+    long size;
     String creationTS;
     String readTS;
     String writeTS;
