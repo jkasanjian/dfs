@@ -1,4 +1,3 @@
-package model;
 
 /**
  * Model class for Song
