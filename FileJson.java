@@ -27,6 +27,17 @@ public class FileJson
         
     }
 
+    public FileJson(String fileName){
+        name = fileName;
+        size = 0;
+        creationTS = 0;
+        readTS = 0;
+        writeTS = 0;
+        referenceCount = 0;
+        numberOfPages = 0;
+        pages = new ArrayList<PageJson>();
+    }
+
     // getters
     public Long getGuid(){
         return this.guid;

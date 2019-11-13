@@ -180,11 +180,18 @@ public class DFS
  */
     public void create(String fileName) throws Exception
     {
-         // TODO: Create the file fileName by adding a new entry to the Metadata
-        // Write Metadata
+        // Retrieving Metadata as FilesJson Object
+        FilesJson metadata = readMetaData();
 
-        
-        
+        // Creating JSONFile object for new file
+        FileJson newfile = new FileJson(fileName);
+
+        // Appending new JSONFile object into metadata files list
+        metadata.addFile(newFile);
+
+        // Entering new file entry into Metadata
+        writeMetaData(metadata);
+
     }
     
 /**
