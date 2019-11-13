@@ -20,7 +20,8 @@ public class DFSCommand
         }
         
         BufferedReader buffer=new BufferedReader(new InputStreamReader(System.in));
-        String line = buffer.readLine();  
+        String line = buffer.readLine();
+        dfs.create("music.json");
         while (!line.equals("quit"))
         {
             String[] result = line.split("\\s");

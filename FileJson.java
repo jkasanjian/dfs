@@ -30,7 +30,7 @@ public class FileJson
     public FileJson(String fileName){
         name = fileName;
         size = 0;
-        creationTS = java.time.LocalDateTime.now().toString();
+        creationTS = String.valueOf(new Date().getTime());
         readTS = "";
         writeTS = "";
         referenceCount = 0;
@@ -64,9 +64,7 @@ public class FileJson
 
     // setters
     public void setName(String name) { this.name = name; }
-    public void setGuid(Long guid){
-        this.guid = guid;
-    }
+
     public void setSize(Long size){
         this.size = size;
     }
