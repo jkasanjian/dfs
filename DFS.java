@@ -8,9 +8,6 @@ import java.security.*;
 import com.google.gson.Gson;
 import java.io.InputStream;
 import java.util.*;
-import FilesJson;
-import FileJson;
-import PageJson;
 
 /* JSON Format
 
@@ -156,7 +153,18 @@ public class DFS
     public void move(String oldName, String newName) throws Exception
     {
         // TODO:  Change the name in Metadata
+        FilesJson md = readMetaData();
+        List<FileJson> files = md.getFile();
+        for ( FileJson fjson: files) {
+            if( fjson.name == oldName ){
+                fjson.setName(newName);
+                break;
+            }
+        }
+
         // Write Metadata
+        md.setFile( files );
+        writeMetaData(md);
     }
 
   
@@ -194,13 +202,17 @@ public class DFS
  */
     public void delete(String fileName) throws Exception
     {
-     
+        FilesJson md = readMetaData();
+
+        for( int i = 0; i < md.){
+
+        }
         
     }
     
 /**
  * Read block pageNumber of fileName 
-  *
+ *
  * @param filename Name of the file
  * @param pageNumber number of block. 
  */
@@ -217,13 +229,11 @@ public class DFS
  */
     public void append(String filename, RemoteInputFileStream data) throws Exception
     {
-        mfs = readMetaData()
-        Long key  =mfs.append(filenamte)
+        FilesJson mfs = readMetaData();
+        Long key = mfs.append(filename);
 
-        chodr.locateSuccessor(key).put(key, data)
-
+        chord.locateSuccessor(key).put(key, data);
         writeMetaData(mfs);
-        
     }
     
 }

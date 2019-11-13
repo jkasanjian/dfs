@@ -8,7 +8,6 @@ import java.security.*;
 import com.google.gson.Gson;
 import java.io.InputStream;
 import java.util.*;
-import FileJson;
 
 public class FilesJson 
 {

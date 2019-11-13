@@ -8,13 +8,13 @@ import java.security.*;
 import com.google.gson.Gson;
 import java.io.InputStream;
 import java.util.*;
-import PageJson;
 
 
 
 public class FileJson 
 {
     String name;
+    Long guid;
     Long   size;
     String creationTS;
     String readTS;
@@ -22,6 +22,7 @@ public class FileJson
     int referenceCount;
     int numberOfPages;
     ArrayList<PageJson> pages;
+
     public FileJson()
     {
         
