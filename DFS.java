@@ -237,11 +237,19 @@ public class DFS
  */
     public void append(String filename, RemoteInputFileStream data) throws Exception
     {
-        FilesJson mfs = readMetaData();
-        Long key = mfs.append(filename);
-
-        chord.locateSuccessor(key).put(key, data);
-        writeMetaData(mfs);
+        FilesJson filesJson = readMetaData();
+        List<FileJson> fileJsonList = filesJson.getFile();
+        for(FileJson fileJson : fileJsonList) {
+            if(fileJson.name.equals(filename)) {
+                List<PageJson> pageJsonList = fileJson.pages;
+                PageJson pageJson = new PageJson();
+                pageJson.guid = md5(fileJson + pageJson.creationTS);
+                pageJsonList.add(pageJson);
+                writeMetaData(filesJson);
+                chord.locateSuccessor(pageJson.guid).put(pageJson.guid, data);
+                break;
+            }
+        }
     }
     
 }
