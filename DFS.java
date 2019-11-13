@@ -214,8 +214,19 @@ public class DFS
         List<FileJson> fileJsonList = md.getFile();
 
         for( FileJson fJson : fileJsonList ){
+            if ( fJson.getName().equals(fileName) ){
+                for( PageJson pJson : fJson.pages ){
+                    long guid = pJson.getGuid();
+                    ChordMessageInterface peer = chord.locateSuccessor(guid);
+                    peer.delete(guid);
+                }
 
+                fileJsonList.remove(fJson);
+                break;
+            }
         }
+
+        writeMetaData( md );
     }
     
 /**
