@@ -1,5 +1,3 @@
-
-
 /**
  * Model class for Release
  * Mapped to JSON nested object 'release' for each song in JSON file
