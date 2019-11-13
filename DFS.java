@@ -221,12 +221,26 @@ public class DFS
 /**
  * Read block pageNumber of fileName 
  *
- * @param filename Name of the file
+ * @param fileName Name of the file
  * @param pageNumber number of block. 
  */
     public RemoteInputFileStream read(String fileName, int pageNumber) throws Exception
     {
-        return null;
+        FilesJson md = readMetaData();
+        List<FileJson> files = md.getFile();
+        FileJson target = new FileJson();   // initialized, but will be replaced
+        String listOfFiles = "";
+        for ( FileJson fjson: files) {
+            if (fjson.name.equals(fileName)) {
+                target = fjson;
+                break;
+            }
+        }
+        Long guid = target.getPages().get(pageNumber-1).getGuid();
+        ChordMessageInterface peer = chord.locateSuccessor(guid);
+        RemoteInputFileStream dataraw = peer.get(guid);
+
+        return dataraw;
     }
     
  /**

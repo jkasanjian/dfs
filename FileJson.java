@@ -58,6 +58,9 @@ public class FileJson
     public int getNumberOfPages(){
         return this.numberOfPages;
     }
+    public ArrayList<PageJson> getPages(){
+        return pages;
+    }
 
     // setters
     public void setName(String name) {this.name = name;}

@@ -1,4 +1,4 @@
-package model;
+
 
 /**
  * Model class for Artist
