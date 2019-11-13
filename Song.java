@@ -1,5 +1,3 @@
-package model;
-
 /**
  * Model class for Song
  * Mapped to JSON nested object 'song' for each song in JSON file

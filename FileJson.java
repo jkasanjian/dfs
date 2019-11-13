@@ -13,7 +13,7 @@ import java.util.*;
 
 public class FileJson 
 {
-    long guid
+    long guid;
     String name;
     long size;
     String creationTS;
@@ -31,9 +31,9 @@ public class FileJson
     public FileJson(String fileName){
         name = fileName;
         size = 0;
-        creationTS = 0;
-        readTS = 0;
-        writeTS = 0;
+        creationTS = java.time.LocalDateTime.now().toString();
+        readTS = "";
+        writeTS = "";
         referenceCount = 0;
         numberOfPages = 0;
         pages = new ArrayList<PageJson>();
@@ -62,6 +62,7 @@ public class FileJson
         return this.numberOfPages;
     }
     // setters
+    public void setName(String name) { this.name = name; }
     public void setGuid(Long guid){
         this.guid = guid;
     }
