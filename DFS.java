@@ -156,7 +156,7 @@ public class DFS
         FilesJson md = readMetaData();
         List<FileJson> files = md.getFile();
         for ( FileJson fjson: files) {
-            if( fjson.name == oldName ){
+            if( fjson.name.equals(oldName)){
                 fjson.setName(newName);
                 break;
             }
@@ -170,21 +170,22 @@ public class DFS
   
 /**
  * List the files in the system
-  *
- * @param filename Name of the file
  */
     public String lists() throws Exception
     {
-        FilesJson fileJson = readMetaData();
+        FilesJson md = readMetaData();
+        List<FileJson> files = md.getFile();
         String listOfFiles = "";
- 
+        for ( FileJson fjson: files) {
+            listOfFiles += (fjson.getName() + "\n");
+        }
         return listOfFiles;
     }
 
 /**
  * create an empty file 
   *
- * @param filename Name of the file
+ * @param fileName Name of the file
  */
     public void create(String fileName) throws Exception
     {
