@@ -254,10 +254,10 @@ public class DFS
         FilesJson filesJson = readMetaData();
         List<FileJson> fileJsonList = filesJson.getFile();
         for(FileJson fileJson : fileJsonList) {
-            if(fileJson.name.equals(filename)) {
+            if(fileJson.name.equals(fileName)) {
                 List<PageJson> pageJsonList = fileJson.pages;
                 PageJson pageJson = new PageJson();
-                pageJson.guid = md5(fileJson + pageJson.creationTS);
+                pageJson.guid = md5(fileJson.name + pageJson.creationTS);
                 pageJsonList.add(pageJson);
                 writeMetaData(filesJson);
                 chord.locateSuccessor(pageJson.guid).put(pageJson.guid, data);
