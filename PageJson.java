@@ -12,21 +12,23 @@ import java.util.*;
 
 public class PageJson
 {
-    Long guid;
-    Long size;
+    long guid;
+    long size;
     String creationTS;
     String readTS;
     String writeTS;
     int referenceCount;
     public PageJson()
     {
-        
+        creationTS = String.valueOf(new Date().getTime());
+        writeTS = String.valueOf(new Date().getTime());
+        referenceCount = 0;
     }
     // getters
-    public Long getGuid(){
+    public long getGuid(){
         return this.guid;
     }
-    public Long getSize(){
+    public long getSize(){
         return this.size;
     }
     public String getCreationTS(){
@@ -42,10 +44,10 @@ public class PageJson
         return this.referenceCount;
     }
     // setters
-    public void setGuid(Long guid){
+    public void setGuid(long guid){
         this.guid = guid;
     }
-    public void setSize(Long size){
+    public void setSize(long size){
         this.size = size;
     }
     public void setCreationTS(String creationTS){

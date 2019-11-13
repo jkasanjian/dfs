@@ -237,7 +237,21 @@ public class DFS
  */
     public RemoteInputFileStream read(String fileName, int pageNumber) throws Exception
     {
-        return null;
+        FilesJson md = readMetaData();
+        List<FileJson> files = md.getFile();
+        FileJson target = new FileJson();   // initialized, but will be replaced
+        String listOfFiles = "";
+        for ( FileJson fjson: files) {
+            if (fjson.name.equals(fileName)) {
+                target = fjson;
+                break;
+            }
+        }
+        Long guid = target.getPages().get(pageNumber-1).getGuid();
+        ChordMessageInterface peer = chord.locateSuccessor(guid);
+        RemoteInputFileStream dataraw = peer.get(guid);
+
+        return dataraw;
     }
     
  /**
@@ -248,11 +262,19 @@ public class DFS
  */
     public void append(String fileName, RemoteInputFileStream data) throws Exception
     {
-        FilesJson mfs = readMetaData();
-        //Long key = mfs.append(fileName);
-
-        //chord.locateSuccessor(key).put(key, data);
-        writeMetaData(mfs);
+        FilesJson filesJson = readMetaData();
+        List<FileJson> fileJsonList = filesJson.getFile();
+        for(FileJson fileJson : fileJsonList) {
+            if(fileJson.name.equals(fileName)) {
+                List<PageJson> pageJsonList = fileJson.pages;
+                PageJson pageJson = new PageJson();
+                pageJson.guid = md5(fileJson.name + pageJson.creationTS);
+                pageJsonList.add(pageJson);
+                writeMetaData(filesJson);
+                chord.locateSuccessor(pageJson.guid).put(pageJson.guid, data);
+                break;
+            }
+        }
     }
     
 }
