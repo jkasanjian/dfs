@@ -13,9 +13,9 @@ import java.util.*;
 
 public class FileJson 
 {
+    long guid
     String name;
-    Long guid;
-    Long   size;
+    long size;
     String creationTS;
     String readTS;
     String writeTS;
@@ -26,6 +26,17 @@ public class FileJson
     public FileJson()
     {
         
+    }
+
+    public FileJson(String fileName){
+        name = fileName;
+        size = 0;
+        creationTS = 0;
+        readTS = 0;
+        writeTS = 0;
+        referenceCount = 0;
+        numberOfPages = 0;
+        pages = new ArrayList<PageJson>();
     }
 
     // getters

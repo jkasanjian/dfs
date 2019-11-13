@@ -125,7 +125,7 @@ public class DFS
             scan.useDelimiter("\\A");
             String strMetaData = scan.next();
             System.out.println(strMetaData);
-            filesJson= gson.fromJson(strMetaData, FilesJson.class);
+            filesJson = gson.fromJson(strMetaData, FilesJson.class);
         } catch (Exception ex)
         {
             filesJson = new FilesJson();
@@ -188,11 +188,18 @@ public class DFS
  */
     public void create(String fileName) throws Exception
     {
-         // TODO: Create the file fileName by adding a new entry to the Metadata
-        // Write Metadata
+        // Retrieving Metadata as FilesJson Object
+        FilesJson metadata = readMetaData();
 
-        
-        
+        // Creating JSONFile object for new file
+        FileJson newfile = new FileJson(fileName);
+
+        // Appending new JSONFile object into metadata files list
+        metadata.addFile(newFile);
+
+        // Entering new file entry into Metadata
+        writeMetaData(metadata);
+
     }
     
 /**
