@@ -8,9 +8,9 @@ import java.security.*;
 import com.google.gson.Gson;
 import java.io.InputStream;
 import java.util.*;
-import FilesJson;
-import FileJson;
-import PageJson;
+// import FilesJson;
+// import FileJson;
+// import PageJson;
 
 /* JSON Format
 
@@ -128,7 +128,7 @@ public class DFS
             scan.useDelimiter("\\A");
             String strMetaData = scan.next();
             System.out.println(strMetaData);
-            filesJson= gson.fromJson(strMetaData, FilesJson.class);
+            filesJson = gson.fromJson(strMetaData, FilesJson.class);
         } catch (Exception ex)
         {
             filesJson = new FilesJson();
