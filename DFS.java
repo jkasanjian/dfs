@@ -247,6 +247,7 @@ public class DFS
                 break;
             }
         }
+        target.setReadTS(java.time.LocalDateTime.now().toString());
         Long guid = target.getPages().get(pageNumber-1).getGuid();
         ChordMessageInterface peer = chord.locateSuccessor(guid);
         RemoteInputFileStream dataraw = peer.get(guid);
