@@ -13,7 +13,6 @@ import java.util.*;
 
 public class FileJson 
 {
-
     String name;
     long size;
     String creationTS;
@@ -40,10 +39,7 @@ public class FileJson
     }
 
     // getters
-    public String getName(){
-        return this.name;
-    }
-
+    public String getName(){ return this.name; }
     public Long getSize(){
         return this.size;
     }
@@ -63,9 +59,7 @@ public class FileJson
         return this.numberOfPages;
     }
     // setters
-    public void setName(String name){
-        this.name = name;
-    }
+    public void setName(String name) {this.name = name;}
 
     public void setSize(Long size){
         this.size = size;

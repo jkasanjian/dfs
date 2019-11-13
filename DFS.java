@@ -193,7 +193,7 @@ public class DFS
         FilesJson metadata = readMetaData();
 
         // Creating JSONFile object for new file
-        FileJson newfile = new FileJson(fileName);
+        FileJson newFile = new FileJson(fileName);
 
         // Appending new JSONFile object into metadata files list
         metadata.addFile(newFile);

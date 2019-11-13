@@ -25,7 +25,7 @@ public class FilesJson
         this.file = file;
     }
     // Adding a file to list
-    public void addFile(FileJson file) {(this.file).add(file)}
+    public void addFile(FileJson file) {(this.file).add(file);}
 };
 
     
