@@ -196,7 +196,7 @@ public class DFS
         FileJson newFile = new FileJson(fileName);
 
         // Appending new JSONFile object into metadata files list
-        metadata.addFile(newFile);
+        metadata.addFile(newfile);
 
         // Entering new file entry into Metadata
         writeMetaData(metadata);
@@ -206,22 +206,22 @@ public class DFS
 /**
  * delete file 
   *
- * @param filename Name of the file
+ * @param fileName Name of the file
  */
     public void delete(String fileName) throws Exception
     {
         FilesJson md = readMetaData();
+        List<FileJson> fileJsonList = md.getFile();
 
-        for( int i = 0; i < md.){
+        for( FileJson fJson : fileJsonList ){
 
         }
-        
     }
     
 /**
  * Read block pageNumber of fileName 
  *
- * @param filename Name of the file
+ * @param fileName Name of the file
  * @param pageNumber number of block. 
  */
     public RemoteInputFileStream read(String fileName, int pageNumber) throws Exception
@@ -232,10 +232,10 @@ public class DFS
  /**
  * Add a page to the file                
   *
- * @param filename Name of the file
+ * @param fileName Name of the file
  * @param data RemoteInputStream. 
  */
-    public void append(String filename, RemoteInputFileStream data) throws Exception
+    public void append(String fileName, RemoteInputFileStream data) throws Exception
     {
         FilesJson filesJson = readMetaData();
         List<FileJson> fileJsonList = filesJson.getFile();

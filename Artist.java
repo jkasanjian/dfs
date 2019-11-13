@@ -1,5 +1,3 @@
-
-
 /**
  * Model class for Artist
  * Mapped to JSON nested object 'artist' for each song in JSON file
